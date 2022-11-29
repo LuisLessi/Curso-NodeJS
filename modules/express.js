@@ -8,8 +8,9 @@ app.set('view engine', 'ejs')
 app.set("views", "src/views")
 
 app.get('/views/users', async (req, res) => {
+    const users = await UserModel.find({})
     try {
-        res.render("index");
+        res.render("index", { users });
     } catch (error) {
 
     }
